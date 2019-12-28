@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // node_modules以下のnameでも指定可能
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
