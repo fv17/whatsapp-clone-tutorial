@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment'
 import { chats } from '../../db';
 
 const ChatsList: React.FC = () => (
@@ -11,7 +12,7 @@ const ChatsList: React.FC = () => (
           {chat.lastMessage && (
             <React.Fragment>
               <div>{chat.lastMessage.content}</div>
-              <div>{chat.lastMessage.createdAt}</div>
+              <div>{moment(chat.lastMessage.createdAt).format('HH:mm')}</div>
             </React.Fragment>
           )}
         </li>
