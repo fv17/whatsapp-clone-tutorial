@@ -34,7 +34,6 @@ const SendButton = styled(Button)`
   margin-right: 0 !important;
   color: white !important;
   padding-left: 20px !important;
-
   svg {
     margin-left: -3px;
   }
@@ -70,13 +69,18 @@ const MessageInput: React.FC<MessageInputProps> = ({ onSendMessage }) => {
   return (
     <Container>
       <ActualInput
+        data-testid="message-input"
         type="text"
         placeholder="Type a message"
         value={message}
         onKeyPress={onKeyPress}
         onChange={onChange}
       />
-      <SendButton variant="contained" color="primary" onClick={submitMessage}>
+      <SendButton
+        data-testid="send-button"
+        variant="contained"
+        color="primary"
+        onClick={submitMessage}>
         <SendIcon />
       </SendButton>
     </Container>

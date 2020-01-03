@@ -1,5 +1,5 @@
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import React from 'react'; // node_modules以下のnameでも指定可能
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 import './index.css';

@@ -16,7 +16,7 @@ const MessageItem = styled.div`
   float: right;
   background-color: #dcf8c6;
   display: inline-block;
-  /* position: relative; */
+  position: relative;
   max-width: 100%;
   border-radius: 7px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
@@ -68,16 +68,19 @@ const MessagesList: React.FC<MessagesListProps> = ({ messages }) => {
 
   useEffect(() => {
     if (!selfRef.current) return;
+
     const selfDOMNode = ReactDOM.findDOMNode(selfRef.current) as HTMLElement;
     selfDOMNode.scrollTop = Number.MAX_SAFE_INTEGER;
   }, [messages.length]);
-  
+
   return (
     <Container ref={selfRef}>
       {messages.map((message: any) => (
-        <MessageItem key={message.id}>
-          <Contents>{message.content}</Contents>
-          <Timestamp>{moment(message.createdAt).format('HH:mm')}</Timestamp>
+        <MessageItem data-testid="message-item" key={message.id}>
+          <Contents data-testid="message-content">{message.content}</Contents>
+          <Timestamp data-testid="message-date">
+            {moment(message.createdAt).format('HH:mm')}
+          </Timestamp>
         </MessageItem>
       ))}
     </Container>
